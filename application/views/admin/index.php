@@ -17,7 +17,7 @@
                     <?php if ($this->session->flashdata('login_failed')): ?>
                         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
                     <?php else: ?>
-                        <h4 class="mb-4 text-center"> Back !</h4>
+                        <h4 class="mb-4 text-center"> Welcome Back !</h4>
                     <?php endif; ?>
                   </div>
                   <form class="user">
