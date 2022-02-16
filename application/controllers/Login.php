@@ -1,9 +1,9 @@
 <?php 
-Class Logincontroller extends CI_Controller{
+Class Login extends CI_Controller{
 
 	public function index(){
 
-		$this->form_validation->set_rules('username','User Name','required',
+		$this->form_validation->set_rules('username','Email','required',
 			array(
 			'required' => 'You are not provide %s.'
 		));
@@ -15,20 +15,20 @@ Class Logincontroller extends CI_Controller{
 		
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('layouts/login-header');
-			$this->load->view('index');
+			$this->load->view('admin/index');
 		}
 		else{
 
 			$username = $this->input->post('username');
 			$enc_password = md5($this->input->post('Password'));
-			$user_id = $this->users->login($username,$enc_password);
-
+			$user_id = $this->Users->login($username,$enc_password);
+			//print_r($enc_password);
 			if ($user_id) {
 				$role = $user_id['roles'];
 				$userid = $user_id['user_id'];
 				$user_data = array(
 					'user_id'  	=> $userid,
-					'user_name' 	=> $username,
+					'email' 	=> $username,
 					'roles' 	=> $role,
 					'logged_in' => true
 				);
@@ -39,7 +39,7 @@ Class Logincontroller extends CI_Controller{
 			}else{
 
 				$this->session->set_flashdata('login_failed','Login is Invalid ');
-				redirect('login/');
+				redirect('login');
 
 			}
 

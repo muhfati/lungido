@@ -5,10 +5,10 @@ Class PagesController extends CI_Controller{
 		
 		if (!file_exists(APPPATH.'views/admin/'.$page.'.php')) {
 			show_404();
-		}
-		elseif($page == 'index'){
-			$this->load->view('layouts/login-header');
-        	$this->load->view('admin/'.$page);
+		// }
+		// elseif($page == 'index'){
+		// 	$this->load->view('layouts/login-header');
+        // 	$this->load->view('admin/'.$page);
 		}else{
 			$this->load->view('layouts/header');
 			$this->load->view('admin/'.$page);

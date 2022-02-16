@@ -7,7 +7,7 @@ Class Users extends CI_model{
 
 	public function login($username,$enc_password){
 
-		$this->db->where('user_name', $username);
+		$this->db->where('email', $username);
 		$this->db->where('password', $enc_password);
 		$result = $this->db->get('users');
 
@@ -24,26 +24,14 @@ Class Users extends CI_model{
 
 			$data = array(
 				'user_id'  => $enc_id,
-				'user_name'  => $this->input->post('username'),
+				'email'  => $this->input->post('username'),
 				'password'  => $enc_password,
+				'phone'	=> $this->input->post('phone'),
 				'roles'  => $this->input->post('Roles')
 			);
-			 $this->db->insert('users',$data);
+			 
 
-			$data = array(
-				'staff_id' => $enc_id,
-				'user_id'  => $enc_id,
-				'email'  => $this->input->post('email'),
-				'address'  => $this->input->post('address'),
-				'name'  => $this->input->post('fullname'),
-				'gender'  => $this->input->post('gender'),
-				'phone'  => $this->input->post('phoneNo'),
-				'postion' => $this->input->post('position'),
-				'description' => $this->input->post('backbody'),
-				'picture' => $picture
-			);
-
-			return $this->db->insert('staff',$data);
+			return $this->db->insert('users',$data);
 
 	}
 
@@ -63,18 +51,15 @@ Class Users extends CI_model{
 	public function view_users($id = FALSE){
 
 		if ($id == FALSE) {
-			$this->db->select('users.user_id,users.roles,users.user_name,staff.name,staff.address,staff.email,staff.gender,staff.phone,staff.postion,staff.description,staff.picture');
+			$this->db->select('users.user_id,users.roles,users.email,staff.phone');
 			$this->db->from('users');
-			$this->db->join('staff', 'staff.user_id  = users.user_id ');
 			$result = $this->db->get();
 			return $result->result_array();
-			# code...
 		}
 			
-			$this->db->select('users.user_id,users.roles,users.user_name,staff.name,staff.address,staff.email,staff.phone,staff.postion,staff.description,staff.picture');
+			$this->db->select('users.user_id,users.roles,users.email,users.phone');
 			$this->db->from('users');
-			$this->db->join('staff', 'staff.user_id  = users.user_id ');
-			$this->db->where('staff.staff_id',$id);
+			$this->db->where('users.user_id',$id);
 			$result = $this->db->get();
 			return $result->row_array();
 
@@ -82,24 +67,14 @@ Class Users extends CI_model{
 
 	public function update_user($enc_password,$picture){
 		$data = array(
-			'user_name' => $this->input->post('username'),
+			'email' => $this->input->post('username'),
 			'password'  => $enc_password,
-			'roles'  => $this->input->post('Roles')
+			'roles'  => $this->input->post('Roles'),
+			'phone'  => $this->input->post('phone')
 		);
 		$this->db->where('user_id',$this->input->post('user_id'));
-		$this->db->update('users',$data);
-
-		$data = array(
-			'email'  => $this->input->post('email'),
-			'address'  => $this->input->post('address'),
-			'name'  => $this->input->post('fullname'),
-			'phone'  => $this->input->post('phoneNo'),
-			'postion' => $this->input->post('position'),
-			'description' => $this->input->post('backbody'),
-			'picture' => $picture
-		);
-		$this->db->where('user_id',$this->input->post('user_id'));
-		return $this->db->update('staff',$data);
+		
+		return $this->db->update('users',$data);
 	}
 
 
@@ -119,9 +94,8 @@ Class Users extends CI_model{
 
 	public function profile($user_id){
 
-		$this->db->select('users.user_id,users.roles,users.user_name,staff.name,staff.address,staff.email,staff.phone,staff.postion,staff.description,staff.picture');
+		$this->db->select('users.user_id,users.roles,users.email,users.phone');
 		$this->db->from('users');
-		$this->db->join('staff', 'staff.user_id  = users.user_id');
 		$this->db->where('users.user_id',$user_id);
 		$result = $this->db->get();
 		return $result->row_array();

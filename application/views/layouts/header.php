@@ -14,12 +14,20 @@
 
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url();?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+      <style type="text/css">
+         .error{
+                color: red;
+        }
+     </style>
 
 </head>
 
 <body id="page-top">
       <!-- Page Wrapper -->
   <div id="wrapper">
+      <?php if (!$this->session->userdata('logged_in') && !$this->session->userdata('email') &&!$this->session->userdata('roles')  && !$this->session->userdata('user_id')) {
+          redirect('login/');
+      } ?>
 
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">

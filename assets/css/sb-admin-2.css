@@ -24,7 +24,7 @@
   --white: #fff;
   --gray: #858796;
   --gray-dark: #5a5c69;
-  --primary: #4e73df;
+  --primary: #1cc88a;
   --secondary: #858796;
   --success: #1cc88a;
   --info: #36b9cc;
@@ -2609,38 +2609,38 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #84e059;
+  border-color: #84e059;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #2e59d9;
-  border-color: #2653d4;
+  background-color: #84e059;
+  border-color: #84e059;
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(105, 136, 228, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(105, 136, 228, 0.5);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(83, 185, 70, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(109, 228, 105, 0.5);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #84e059;
+  border-color: #84e059;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #2653d4;
-  border-color: #244ec9;
+  background-color: #84e059;
+  border-color: #84e059;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(105, 136, 228, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(105, 136, 228, 0.5);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(83, 185, 70, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(83, 185, 70, 0.5);
 }
 
 .btn-secondary {
@@ -3927,8 +3927,8 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-  border-color: #4e73df;
-  background-color: #4e73df;
+  border-color: #34e3a4;
+  background-color: #34e3a4;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
@@ -3936,11 +3936,11 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
-  background-color: rgba(78, 115, 223, 0.5);
+  background-color: rgba(78, 223, 78, 0.5);
 }
 
 .custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
-  background-color: rgba(78, 115, 223, 0.5);
+  background-color: rgba(78, 223, 78, 0.5);
 }
 
 .custom-radio .custom-control-label::before {
